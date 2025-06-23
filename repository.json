@@ -1,8 +1,8 @@
 {
-  "name": "Opale IPTV",
+  "name": "OpaleTv",
   "description": "Plugin لجلب ملفات IPTV (Live + VOD) من GitHub",
   "manifestVersion": 1,
   "pluginLists": [
-  "https://rahimopale.github.io/cloudstream-OpaleTV/plugins.json"
+    "https://rahimopale.github.io/cloudstream-OpaleTV/plugins.json"
   ]
 }
