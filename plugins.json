@@ -1,0 +1,9 @@
+[
+  {
+    "id": "opaleiptv",
+    "name": "Opale IPTV",
+    "description": "Live + VOD من Xtream",
+    "icon": "https://raw.githubusercontent.com/rahimopale/cloudstream-OpaleTV/main/icon.png",
+    "main": "OpaleIPTV"
+  }
+]
