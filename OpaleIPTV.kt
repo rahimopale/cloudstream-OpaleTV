@@ -1,23 +1,18 @@
 package com.opaletv
 
-import com.lagradost.cloudstream3.MainAPI
-import com.lagradost.cloudstream3.TvType
-import com.lagradost.cloudstream3.LoadResponse
-import com.lagradost.cloudstream3.SearchResponse
-import com.lagradost.cloudstream3.utils.ExtractorLink
-import com.lagradost.cloudstream3.utils.loadM3u
-import com.lagradost.cloudstream3.utils.AppUtils
+import com.lagradost.cloudstream3.*
+import com.lagradost.cloudstream3.utils.*
 
 class OpaleIPTV : MainAPI() {
     override var mainUrl = "http://nodns1.top:8080"
     override var name = "Opale IPTV"
     override val hasMainPage = true
-    override val supportedTypes = setOf(TvType.Live, TvType.TvSeries, TvType.Movie)
+    override val supportedTypes = setOf(TvType.Live)
 
-    private val fullM3uUrl = "$mainUrl/get.php?username=1131718110212168&password=7ceea78cf031&type=m3u_plus"
+    private val m3uUrl = "$mainUrl/get.php?username=1131718110212168&password=7ceea78cf031&type=m3u_plus"
 
     override suspend fun getMainPage(): HomePageResponse {
-        val channels = AppUtils.parseM3u(fullM3uUrl).map {
+        val channels = AppUtils.parseM3u(m3uUrl).map {
             LiveSearchResponse(
                 name = it.name ?: "Unknown",
                 url = it.url ?: "",
@@ -27,7 +22,7 @@ class OpaleIPTV : MainAPI() {
                 quality = null
             )
         }
-        return newHomePageResponse("Live Channels", channels)
+        return newHomePageResponse("Live", channels)
     }
 
     override suspend fun load(url: String): LoadResponse {
