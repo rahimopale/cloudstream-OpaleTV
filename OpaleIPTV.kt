@@ -4,8 +4,8 @@ import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
 import com.lagradost.cloudstream3.api.*
 
-class OpaleIPTV : MainAPI() {
-    override var name = "Opale IPTV"
+class OpaleTv : MainAPI() {
+    override var name = "OpaleTv"
     override var mainUrl = "http://nodns1.top:8080"
     override val hasMainPage = true
     override val supportedTypes = setOf(TvType.Live)
