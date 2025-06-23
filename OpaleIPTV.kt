@@ -2,10 +2,11 @@ package com.opaletv
 
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.*
+import com.lagradost.cloudstream3.api.*
 
 class OpaleIPTV : MainAPI() {
-    override var mainUrl = "http://nodns1.top:8080"
     override var name = "Opale IPTV"
+    override var mainUrl = "http://nodns1.top:8080"
     override val hasMainPage = true
     override val supportedTypes = setOf(TvType.Live)
 
@@ -27,7 +28,7 @@ class OpaleIPTV : MainAPI() {
 
     override suspend fun load(url: String): LoadResponse {
         return newMovieLoadResponse("Live Stream", url, TvType.Live) {
-            this.streamLinks = listOf(ExtractorLink(this.name, this.name, url, this.mainUrl))
+            this.streamLinks = listOf(ExtractorLink(this.name, this.name, url, mainUrl))
         }
     }
 }
